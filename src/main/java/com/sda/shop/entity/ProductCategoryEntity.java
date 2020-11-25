@@ -12,11 +12,13 @@ public class ProductCategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productCategoryId;
-    @Size(min = 2 , max =6,message="not valid imput")
+
+    @Size(min = 2, max = 6, message = "not valid imput")
     @NotBlank(message = "Description can,t be blank")
     private String description;
-@OneToMany(mappedBy = "productCategory")
-private List<ProductEntity> products;
+
+    @OneToMany(mappedBy = "productCategory")
+    private List<ProductEntity> products;
 
     public Integer getProductCategoryId() {
         return productCategoryId;

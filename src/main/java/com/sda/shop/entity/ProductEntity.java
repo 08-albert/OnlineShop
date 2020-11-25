@@ -1,24 +1,40 @@
 package com.sda.shop.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="products")
+@Table(name = "products")
 public class ProductEntity {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productId;
-    private String productDescription;
+
+
     private String productName;
+
+    private String productDescription;
+
+
     private double price;
+
     private Integer productStock;
 
 
-
     @ManyToOne
-    @JoinColumn(name="productCategoryId")
+    @JoinColumn(name = "productCategoryId", insertable = false, updatable = false)
     private ProductCategoryEntity productCategory;
+
+    private Integer productCategoryId;
+
+    public Integer getProductCategoryId() {
+        return productCategoryId;
+    }
 
     public ProductCategoryEntity getProductCategory() {
         return productCategory;
@@ -27,6 +43,7 @@ public class ProductEntity {
     public void setProductCategory(ProductCategoryEntity productCategory) {
         this.productCategory = productCategory;
     }
+
     public Integer getProductId() {
         return productId;
     }
@@ -67,5 +84,8 @@ public class ProductEntity {
         this.productStock = productStock;
     }
 
+    public void setProductCategoryId(Integer categoryId) {
+        this.productCategoryId = categoryId;
 
+    }
 }

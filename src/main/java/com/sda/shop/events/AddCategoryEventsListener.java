@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AddCategoryListener implements ApplicationListener<AddCategoryEvent> {
+public class AddCategoryEventsListener implements ApplicationListener<AddCategoryEvent> {
 
 
     @Override
